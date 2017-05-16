@@ -1,11 +1,6 @@
 ---
-- hosts: myhosts
+- hosts: all
   tasks:
-   # - name: installing nginx
-   #   become: yes
-   #   yum:
-   #     name: nginx
-   #     state: latest
    - name: Add Node js repository
      become: yes
      yum_repository:
@@ -14,6 +9,8 @@
       baseurl: https://rpm.nodesource.com/pub_7.x/el/6/x86_64/
       gpgcheck: no
 
+- hosts: myhosts
+  tasks:
    - name: installing nginx and node js
      become: yes
      yum: name={{item}} state=latest
@@ -36,21 +33,8 @@
 
 - hosts: assignmenthosts
   tasks:
-   - name: Add Node js repository
-     become: yes
-     yum_repository:
-      name: nodejs
-      description: installing node
-      baseurl: https://rpm.nodesource.com/pub_7.x/el/6/x86_64/
-      gpgcheck: no
-       
    - name: installing node js
      become: yes
      yum: name={{item}} state=latest
      with_items:
        - nodejs-7.10.0
-
-   # - name: installing nodejs
-   #   become: yes
-   #   yum:
-   #     name: nodejs 

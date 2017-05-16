@@ -1,5 +1,4 @@
 [myhosts]
-localhost ansible_connection=localhost
 192.168.33.10 ansible_user=vagrant ansible_ssh_private_key_file=.vagrant/machines/default/virtualbox/private_key
 
 [assignmenthosts]

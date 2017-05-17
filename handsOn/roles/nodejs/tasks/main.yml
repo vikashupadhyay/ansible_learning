@@ -1,0 +1,13 @@
+- name: Add Node js repository
+  become: yes
+  yum_repository:
+   name: nodejs
+   description: installing node
+   baseurl: https://rpm.nodesource.com/pub_7.x/el/6/x86_64/
+   gpgcheck: no
+
+- name: installing node js
+  become: yes
+  yum:
+    name: nodejs-7.10.0
+    state: latest

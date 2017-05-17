@@ -1,23 +1,15 @@
 ---
-- hosts: all
-  tasks:
-   - name: Add Node js repository
-     become: yes
-     yum_repository:
-      name: nodejs
-      description: installing node
-      baseurl: https://rpm.nodesource.com/pub_7.x/el/6/x86_64/
-      gpgcheck: no
-
 - hosts: myhosts
+  vars_files:
+   - config.yml
   tasks:
+   - name: include nodejs role
+     include_role:
+       name: nodejs
    - name: installing nginx and node js
      become: yes
-     yum: name={{item}} state=latest
-     with_items:
-       - nginx
-       - nodejs-7.8.0
-
+     yum: name=nginx state=latest
+     
    - name: Change default config
      become: yes
      copy:
@@ -32,9 +24,9 @@
        enabled: yes
 
 - hosts: assignmenthosts
+  vars_files:
+   - config.yml
   tasks:
-   - name: installing node js
-     become: yes
-     yum: name={{item}} state=latest
-     with_items:
-       - nodejs-7.10.0
+   - name: include nodejs role
+     include_role:
+       name: nodejs

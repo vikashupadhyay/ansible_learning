@@ -1,23 +1,14 @@
 ---
 - hosts: myhosts
   vars_files:
-   - config.yml
-  vars:
-   node_version: "{{node_version_myhost}}"
-  tasks:
-   - name: include nodejs role
-     include_role:
-      name: nodejs
-   - name: installing nginx and node js
-     become: yes
-     yum: name=nginx state=latest
+   - ./vars/hostServer.yml
+  roles:
+    - nodejs
+    - nginx
     
 - hosts: assignmenthosts
   vars_files:
-    - config.yml
-  vars:
-   node_version: "{{node_version_assignment}}"
+    - ./vars/assignmentHost.yml
+  roles:
+   - nodejs  
   tasks:
-   - name: include nodejs role
-     include_role:
-      name: nodejs

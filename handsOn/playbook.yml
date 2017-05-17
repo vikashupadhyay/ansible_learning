@@ -1,11 +1,11 @@
 ---
 - hosts: myhosts
-  vars_files:
-   - config.yml
+  vars:
+   node_version: 7.10.0
   tasks:
    - name: include nodejs role
      include_role:
-       name: nodejs
+      name: nodejs
    - name: installing nginx and node js
      become: yes
      yum: name=nginx state=latest
@@ -24,9 +24,9 @@
        enabled: yes
 
 - hosts: assignmenthosts
-  vars_files:
-   - config.yml
+  vars:
+   node_version: 7.8.0
   tasks:
    - name: include nodejs role
      include_role:
-       name: nodejs
+      name: nodejs

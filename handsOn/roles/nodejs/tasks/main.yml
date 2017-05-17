@@ -9,5 +9,5 @@
 - name: installing node js
   become: yes
   yum:
-    name: nodejs-7.10.0
+    name: nodejs-{{node_version}}
     state: latest

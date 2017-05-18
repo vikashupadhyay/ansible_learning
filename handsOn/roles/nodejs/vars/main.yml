@@ -1,0 +1,3 @@
+# vars is higher preority to get vars
+
+#node_version: 7.8.0

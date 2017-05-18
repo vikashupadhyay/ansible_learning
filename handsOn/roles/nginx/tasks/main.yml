@@ -1,6 +1,6 @@
 - name: Change default config
   become: yes
-  copy:
+  template:
    src: nginx.conf
    dest: /etc/nginx/conf.d/default.conf
 

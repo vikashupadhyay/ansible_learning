@@ -6,8 +6,6 @@
    baseurl: https://rpm.nodesource.com/pub_7.x/el/6/x86_64/
    gpgcheck: no
 
-- debug:
-   msg: "{{node_version}}"
 - name: installing node js
   become: yes
   yum:

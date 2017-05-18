@@ -3,8 +3,9 @@
   vars_files:
    - ./configs/hostServer.yml
   roles:
-    - nodejs
     - nginx  
+    - nodejs
+
     
 - hosts: assignmenthosts
   vars_files:

@@ -1,7 +1,0 @@
-- name: nginx role
-  include_role:
-   name: nginx
-
-- name: node js role
-  include_role:
-    name: nodejs

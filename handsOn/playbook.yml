@@ -6,7 +6,6 @@
     - nginx  
     - nodejs
 
-    
 - hosts: assignmenthosts
   vars_files:
     - ./configs/assignmentHost.yml

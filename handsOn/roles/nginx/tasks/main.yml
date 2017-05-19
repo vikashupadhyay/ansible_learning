@@ -11,7 +11,7 @@
   register: nginx_conf_result
   
 - set_fact:
-   is_nginx_config_changed: nginx_conf_result.changed
+   is_nginx_config_changed: "{{nginx_conf_result.changed}}"
 
 - name: Restart nginx
   become: yes

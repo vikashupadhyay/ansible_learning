@@ -11,4 +11,10 @@
   become: yes
   yum:
     name: go-server-{{go_server_version}}
-    state: latest
+    state: present
+
+- name: Start go Server
+  become: yes
+  service:
+    name: go-server
+    state: started

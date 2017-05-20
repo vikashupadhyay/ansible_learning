@@ -1,0 +1,26 @@
+- name : Adding go repo
+  become: yes
+  yum_repository:
+   name: go_server
+   description: Go-CD repo
+   baseurl: https://download.gocd.io
+   gpgkey: https://download.gocd.io/GOCD-GPG-KEY.asc
+   gpgcheck: yes
+
+- name: Install go agent
+  become: yes
+  yum:
+    name: go-agent-{{go_agent_version}}
+    state: present
+
+- name: change defaults config of go agent
+  become: yes
+  template:
+    src: go_agent.conf
+    dest: /etc/default/go-agent
+
+- name: start go agent
+  become: yes
+  service:
+    name: go-agent
+    state: started

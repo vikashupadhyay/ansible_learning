@@ -2,3 +2,7 @@
 - hosts: box1
   roles:
    - box1
+
+- hosts: box2
+  roles:
+   - box2

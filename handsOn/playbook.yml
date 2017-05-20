@@ -2,8 +2,12 @@
 - hosts: myhosts
   vars_files:
    - ./configs/hostServer.yml
+   - ./configs/set_var_password.yml
   roles:
    - myhosts
+  tasks:
+    - debug:
+       msg: "{{set_password}}"
 
 - hosts: assignmenthosts
   vars_files:

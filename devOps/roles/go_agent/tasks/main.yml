@@ -16,7 +16,7 @@
 - name: change defaults config of go agent
   become: yes
   template:
-    src: go_agent.conf
+    src: go_agent.conf.j2
     dest: /etc/default/go-agent
 
 - name: start go agent

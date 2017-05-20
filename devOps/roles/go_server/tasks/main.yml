@@ -1,20 +1,2 @@
-- name : Adding go server repo
-  become: yes
-  yum_repository:
-   name: go_server
-   description: Go-CD repo
-   baseurl: https://download.gocd.io
-   gpgkey: https://download.gocd.io/GOCD-GPG-KEY.asc
-   gpgcheck: yes
-
-- name: Install go server
-  become: yes
-  yum:
-    name: go-server-{{go_server_version}}
-    state: present
-
-- name: Start go Server
-  become: yes
-  service:
-    name: go-server
-    state: started
+- include: server_provision.yml
+# - include: auth.yml
